@@ -93,7 +93,7 @@ class SymbolGenerator {
 
       return {
         CorrectOrders: correctOrders,
-        Lists: this.symbolLists
+        Lists: this.symbolLists.map((x) => {return x.map((xx) => xx.Character)})
       }
   } 
 }

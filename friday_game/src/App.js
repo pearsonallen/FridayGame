@@ -35,6 +35,7 @@ class App extends React.Component {
   getDataByKey = async (key) => {
     if (key === 'foo') {
       const response = await axios.get(process.env.REACT_APP_API + "/GetSymbols");
+      
       this.setState({
         CorrectOrders: response.data.CorrectOrders,
         Lists: response.data.Lists
