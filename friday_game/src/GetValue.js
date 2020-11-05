@@ -18,8 +18,6 @@ class GetValue extends React.Component {
         });
     }
 
-    
-
     render() {
         const lists = () => {
             var r = null;

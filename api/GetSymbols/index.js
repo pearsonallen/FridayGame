@@ -41,8 +41,8 @@ module.exports = async function (context, req) {
         let stuff = [];
         let cOrder = [];
         for(var ii = 0; ii <= 3; ii++) {
-          let ordinalValue = ii + 1;
-          let character = chosenList[chosenChoices[listChoices[i]] * 4 + ii];
+          let ordinalValue = chosenChoices[listChoices[i]] * 4 + ii;
+          let character = chosenList[ordinalValue];
           stuff.push({
             Id: ordinalValue,
             Char: character

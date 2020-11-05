@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
 import './App.css';
-import GetValue from './GetValue';
 import PuzzleScreen from './PuzzleScreen';
 import InitialButtonsScreen from './InitialButtonsScreen';
 import ListScreen from './ListScreen';
@@ -43,40 +41,6 @@ class App extends React.Component {
         Lists: response.data.Lists
       });
       return true;
-      // this.setState({
-      //   CorrectOrders: [
-      //     {
-      //       Stuff: [
-      //         {Id: 1,
-      //         Char: '!'},
-      //         {Id: 2,
-      //         Char: '@'},
-      //         {Id: 3,
-      //         Char: '#'},
-      //         {Id: 4,
-      //         Char: '$'}
-      //       ],
-      //       CorrectOrder: [2,1,3,4]
-      //     },
-      //     {
-      //       Stuff: [
-      //         {Id: 1,
-      //         Char: '!'},
-      //         {Id: 2,
-      //         Char: '@'},
-      //         {Id: 3,
-      //         Char: '#'},
-      //         {Id: 4,
-      //         Char: '$'}
-      //       ],
-      //       CorrectOrder: [1,2,3,4]
-      //     }
-      //   ],
-      //   Lists: [
-      //     ['!','@','#','$'],
-      //     ['%','^','*','(']
-      //   ]
-      // });
     } else {
       return false;
     }

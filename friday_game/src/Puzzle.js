@@ -14,7 +14,7 @@ class Puzzle extends React.Component {
       
       let validNextOrdinalValue = this.props.correctOrder.CorrectOrder[buttonsClicks.length];
   
-      if (ordinalValue != validNextOrdinalValue) {
+      if (ordinalValue !== validNextOrdinalValue) {
         this.props.onError();
         this.setState({
           button1Clicked: false,
@@ -44,19 +44,19 @@ class Puzzle extends React.Component {
   
     handleClick = (btnNumber,id) => {
       if (btnNumber === 1) {
-        if (this.handleAddButton(id) == true) {
+        if (this.handleAddButton(id) === true) {
           this.setState({button1Clicked: true});
         }
       } else if (btnNumber === 2) {
-        if (this.handleAddButton(id) == true) {
+        if (this.handleAddButton(id) === true) {
           this.setState({button2Clicked: true});
         } 
       } else if (btnNumber === 3) {
-        if (this.handleAddButton(id) == true) {
+        if (this.handleAddButton(id) === true) {
           this.setState({button3Clicked: true});
         }
       } else if (btnNumber === 4) {
-        if (this.handleAddButton(id) == true) {
+        if (this.handleAddButton(id) === true) {
           this.setState({button4Clicked: true});
         }
       }
