@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 module.exports = async function (context, req) {
 
   context.log('JavaScript HTTP trigger function processed a request.');
-  const symbolGen = new SymbolGenerator();
+  const symbolGen = new SymbolGenerator(req.query.difficulty == null ? 1 : req.query.difficulty);
   
   var tableSvc = azure.createTableService('miscprojectsstorage',process.env["AzureTableStorageAccessKey"]);
     var uniqueID = uuidv4();
@@ -37,9 +37,9 @@ async function insertEntity(tableService, ...args) {
 };
 
 class SymbolGenerator {
-  constructor() {
+  constructor(difficulty) {
+    this.difficulty = difficulty;
     this.symbolLists = this.getSymbols();
-
     this.shuffledSymbolLists = this.getShuffledSymbolLists(JSON.parse(JSON.stringify(this.symbolLists)));
   }
 
@@ -59,8 +59,16 @@ class SymbolGenerator {
       "❬❭❮❯❰❱❲❳❴❵❶❉".split(""),
       "➜➝➞➟➠➡➢➣➤➥➦❊".split("")
     ];
+    if (this.difficulty === '3') {
+      symbolLibrary = [].concat(...symbolLibrary);
+      symbolLibrary = this.shuffle(symbolLibrary);
+      const r = [];
+      while(symbolLibrary.length) r.push(symbolLibrary.splice(0,12));
+      symbolLibrary = r;
+    }
     let ordLib = symbolLibrary.map((chars) => {
-      return chars.map((char, index) => {
+      let newChars = this.difficulty === '2' ? this.shuffle(chars) : chars;
+      return newChars.map((char, index) => {
         return {
           Position: index,
           Character: char

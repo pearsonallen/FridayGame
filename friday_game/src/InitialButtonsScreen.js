@@ -16,9 +16,9 @@ class InitialButtonsScreen extends React.Component {
     this.props.personBStart(this.state.PersonBScreenKey);
   }
 
-  getSpecialKey = async () => {
-    const response = await axios.get(process.env.REACT_APP_API + "/CreateSymbols");
-    debugger;
+  getSpecialKey = async (difficulty) => {
+    const response = await axios.get(process.env.REACT_APP_API + "/CreateSymbols?difficulty=" + difficulty);
+    
     this.setState({
       SpecialKey: response.data
     })
@@ -27,7 +27,9 @@ class InitialButtonsScreen extends React.Component {
   render() {
     return (
       <React.Fragment className="screen1">
-        <button onClick={this.getSpecialKey}>Start Game</button>
+        <button onClick={() => this.getSpecialKey(1)}>Start Easy Game</button>
+        <button onClick={() => this.getSpecialKey(2)}>Start Medium Game</button>
+        <button onClick={() => this.getSpecialKey(3)}>Start Hard Game</button>
         <div>{this.state.SpecialKey}</div>
 
         <button onClick={this.handlePersonAStart}>Start Person A Screen</button> <br />
