@@ -2,7 +2,9 @@ import React from 'react';
 
 class InitialButtonsScreen extends React.Component {
   state = {
-    SpecialKey: ''
+    SpecialKey: '',
+    PersonAScreenKey: 'foo',
+    PersonBScreenKey: 'foo'
   };
 
   handlePersonAStart = () => {
