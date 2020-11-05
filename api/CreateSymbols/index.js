@@ -1,16 +1,40 @@
+let azure = require("azure-storage");
+const { v4: uuidv4 } = require('uuid');
+
 module.exports = async function (context, req) {
 
   context.log('JavaScript HTTP trigger function processed a request.');
   const symbolGen = new SymbolGenerator();
   
-  context.res = {
-    // status: 200, /* Defaults to 200 */
-    body: symbolGen.getCorrectOrders(),
-    headers: {
-        'Content-Type': 'application/json'
+  var tableSvc = azure.createTableService('miscprojectsstorage',process.env["AzureTableStorageAccessKey"]);
+    var uniqueID = uuidv4();
+    var entity = {
+        PartitionKey: {'_':'1'},
+        RowKey: {'_':uniqueID},
+        Data: {'_':JSON.stringify(symbolGen.getCorrectOrders())}
+    };
+    let r = await insertEntity(tableSvc, "fridaygame", entity);
+
+    if (r[".metadata"].etag != null) {
+      context.res = {
+        body: uniqueID
+      }
     }
-  };
 }
+
+async function insertEntity(tableService, ...args) {
+  return new Promise((resolve, reject) => {
+    let promiseHandling = (err, result) => {
+        if (err) {
+            reject(err);
+        } else {
+            resolve(result);
+        }
+    };
+    args.push(promiseHandling);
+    tableService.insertEntity.apply(tableService, args);
+  });
+};
 
 class SymbolGenerator {
   constructor() {

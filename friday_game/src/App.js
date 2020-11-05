@@ -33,17 +33,16 @@ class App extends React.Component {
   };
 
   getDataByKey = async (key) => {
-    if (key === 'foo') {
-      const response = await axios.get(process.env.REACT_APP_API + "/GetSymbols");
-      
-      this.setState({
-        CorrectOrders: response.data.CorrectOrders,
-        Lists: response.data.Lists
-      });
-      return true;
-    } else {
-      return false;
-    }
+      const response = await axios.get(process.env.REACT_APP_API + "/GetSymbols?rowkey=" + key);
+      if (response.data.CorrectOrders != null && response.data.Lists != null) {
+        this.setState({
+          CorrectOrders: response.data.CorrectOrders,
+          Lists: response.data.Lists
+        });
+        return true;
+      } else {
+        return false;
+      }
   }
   render() {
     return (

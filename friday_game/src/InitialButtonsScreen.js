@@ -1,10 +1,11 @@
 import React from 'react';
+import axios from 'axios';
 
 class InitialButtonsScreen extends React.Component {
   state = {
     SpecialKey: '',
-    PersonAScreenKey: 'foo',
-    PersonBScreenKey: 'foo'
+    PersonAScreenKey: '',
+    PersonBScreenKey: ''
   };
 
   handlePersonAStart = () => {
@@ -15,9 +16,11 @@ class InitialButtonsScreen extends React.Component {
     this.props.personBStart(this.state.PersonBScreenKey);
   }
 
-  getSpecialKey = () => {
+  getSpecialKey = async () => {
+    const response = await axios.get(process.env.REACT_APP_API + "/CreateSymbols");
+    debugger;
     this.setState({
-      SpecialKey: 'foo'
+      SpecialKey: response.data
     })
   }
 
