@@ -11,15 +11,15 @@ module.exports = async function (context, req) {
 
     function shuffle(array)
     {
-    var m = array.length, t, i;
-    while (m > 0) 
-    {
-        i = Math.floor(Math.random() * m--);
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }
-    return array;
+        var m = array.length, t, i;
+        while (m > 0) 
+        {
+            i = Math.floor(Math.random() * m--);
+            t = array[m];
+            array[m] = array[i];
+            array[i] = t;
+        }
+        return array;
     }
 
     const generateList = function () {

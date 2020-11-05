@@ -8,7 +8,7 @@ class PuzzleScreen extends React.Component {
       YouLose: false,
       YouWin: false,
       ShowPuzzle: true,
-      CorrectOrder: this.props.correctOrders()[0]
+      CorrectOrder: this.props.correctOrders[0]
     };
   
     handleError = () => {
@@ -25,8 +25,8 @@ class PuzzleScreen extends React.Component {
     }
   
     handleWin = () => {
-      let orders = this.props.correctOrders().length;
-      
+      let orders = this.props.correctOrders.length;
+
       if (this.state.Wins + 1 === orders) {
         this.setState({
           Wins: this.state.Wins + 1,
@@ -36,7 +36,7 @@ class PuzzleScreen extends React.Component {
       } else {
         this.setState({
           Wins: this.state.Wins + 1,
-          CorrectOrder: this.props.correctOrders()[this.state.Wins + 1]
+          CorrectOrder: this.props.correctOrders[this.state.Wins + 1]
         });
       }
     }

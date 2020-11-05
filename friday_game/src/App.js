@@ -3,77 +3,83 @@ import logo from './logo.svg';
 import './App.css';
 import GetValue from './GetValue';
 import PuzzleScreen from './PuzzleScreen';
-
-class InitialButtonsScreen extends React.Component {
-  state = {};
-
-  handlePersonAStart = () => {
-    this.props.personAStart();
-  };
-
-  handlePersonBStart = () => {
-    this.props.personBStart();
-  }
-
-  render() {
-    return (
-      <React.Fragment className="screen1">
-        <button>Start Game</button>
-        <button onClick={this.handlePersonAStart}>Start Person A Screen</button>
-        <button onClick={this.handlePersonBStart}>Start Person B Screen</button>
-      </React.Fragment>
-    )
-  }
-}
-
-class ListScreen extends React.Component {
-  state = {};
-
-  render() {
-    return (
-      <React.Fragment>
-        <ul><li>Some List</li></ul>
-      </React.Fragment>
-    )
-  }
-}
+import InitialButtonsScreen from './InitialButtonsScreen';
+import ListScreen from './ListScreen';
 
 class App extends React.Component {
   state = {
     showFirstScreen: true,
     showListScreen: false,
-    showPuzzleScreen: false
+    showPuzzleScreen: false,
+    CorrectOrders: [],
+    Lists: []
   };
 
-  showListScreen = () => {
-    debugger;
-    this.setState({
-      showFirstScreen: false, 
-      showListScreen: true,
-      showPuzzleScreen: false});
+  showListScreen = (key) => {
+    if (this.getDataByKey(key) === true) {
+      this.setState({
+        showFirstScreen: false, 
+        showListScreen: true,
+        showPuzzleScreen: false});
+    }
   };
 
-  showPuzzleScreen = () => {
-    this.setState({
-      showFirstScreen: false, 
-      showListScreen: false,
-      showPuzzleScreen: true});
+  showPuzzleScreen = (key) => {
+    if (this.getDataByKey(key) === true) {
+      this.setState({
+        showFirstScreen: false, 
+        showListScreen: false,
+        showPuzzleScreen: true});
+    }
   };
 
-  correctOrders = () => {
-    return [
-      [1,3,2,4],
-      //[1,2,3,4],
-      //[2,3,4,1]
-    ]
-  };
-
+  getDataByKey = (key) => {
+    if (key === 'foo') {
+      this.setState({
+        CorrectOrders: [
+          {
+            Stuff: [
+              {Id: 1,
+              Char: '!'},
+              {Id: 2,
+              Char: '@'},
+              {Id: 3,
+              Char: '#'},
+              {Id: 4,
+              Char: '$'}
+            ],
+            CorrectOrder: [2,1,3,4]
+          },
+          {
+            Stuff: [
+              {Id: 1,
+              Char: '!'},
+              {Id: 2,
+              Char: '@'},
+              {Id: 3,
+              Char: '#'},
+              {Id: 4,
+              Char: '$'}
+            ],
+            CorrectOrder: [1,2,3,4]
+          }
+        ],
+        Lists: [
+          ['!','@','#','$'],
+          ['%','^','*','(']
+        ]
+      });
+      return true;
+    } else {
+      return false;
+    }
+  }
   render() {
     return (
       <div>
       {(this.state.showFirstScreen && <InitialButtonsScreen personAStart={this.showListScreen} personBStart={this.showPuzzleScreen} />)}
-      {(this.state.showListScreen && <ListScreen />)}
-      {(this.state.showPuzzleScreen && <PuzzleScreen correctOrders={this.correctOrders} />)}
+      {(this.state.showListScreen && <ListScreen lists={this.state.Lists} />)}
+      {(this.state.showPuzzleScreen && <PuzzleScreen correctOrders={this.state.CorrectOrders} />)}
       </div>
     );
   }

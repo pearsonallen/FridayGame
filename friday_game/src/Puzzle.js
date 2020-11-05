@@ -11,8 +11,8 @@ class Puzzle extends React.Component {
   
     handleAddButton = (ordinalValue) => {
       let buttonsClicks = this.state.buttonsClicks;
-
-      let validNextOrdinalValue = this.props.correctOrder[buttonsClicks.length];
+      
+      let validNextOrdinalValue = this.props.correctOrder.CorrectOrder[buttonsClicks.length];
   
       if (ordinalValue != validNextOrdinalValue) {
         this.props.onError();
@@ -26,8 +26,8 @@ class Puzzle extends React.Component {
         return false;
       } else {
         buttonsClicks.push(ordinalValue);
-        if (buttonsClicks.length === this.props.correctOrder.length &&
-            buttonsClicks.every((val, index) => val ===this.props.correctOrder[index])) {
+        if (buttonsClicks.length === this.props.correctOrder.CorrectOrder.length &&
+            buttonsClicks.every((val, index) => val ===this.props.correctOrder.CorrectOrder[index])) {
                 this.props.onWin();
                 this.setState({
                     button1Clicked: false,
@@ -68,18 +68,18 @@ class Puzzle extends React.Component {
         <table>
           <tr>
             <td>
-              <button className={`puzzleButton ${this.state.button1Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button1Clicked && this.handleClick(1)}>!</button>
+              <button className={`puzzleButton ${this.state.button1Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button1Clicked && this.handleClick(this.props.correctOrder.Stuff[0].Id)}>{this.props.correctOrder.Stuff[0].Char}</button>
             </td>
             <td>
-              <button className={`puzzleButton ${this.state.button2Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button2Clicked && this.handleClick(2)}>@</button>
+              <button className={`puzzleButton ${this.state.button2Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button2Clicked && this.handleClick(this.props.correctOrder.Stuff[1].Id)}>{this.props.correctOrder.Stuff[1].Char}</button>
             </td>
           </tr>
           <tr>
             <td>
-              <button className={`puzzleButton ${this.state.button3Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button3Clicked && this.handleClick(3)}>#</button>
+              <button className={`puzzleButton ${this.state.button3Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button3Clicked && this.handleClick(this.props.correctOrder.Stuff[2].Id)}>{this.props.correctOrder.Stuff[2].Char}</button>
             </td>
             <td>
-              <button className={`puzzleButton ${this.state.button4Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button4Clicked && this.handleClick(4)}>$</button>
+              <button className={`puzzleButton ${this.state.button4Clicked === true ? "btnClicked" : ""}`} onClick={() => !this.state.button4Clicked && this.handleClick(this.props.correctOrder.Stuff[3].Id)}>{this.props.correctOrder.Stuff[3].Char}</button>
             </td>
           </tr>
         </table>
