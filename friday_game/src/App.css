@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+.puzzleButton {
+  font-size: 60pt;
+  width:100px;
+  height: 100px;
+
+}
+
+.btnClicked {
+  background-color: green;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
