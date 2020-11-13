@@ -37,7 +37,7 @@ class InitialButtonsScreen extends React.Component {
             <button className="hard" onClick={() => this.getSpecialKey(3)}>Start Hard Game</button>
             
           </div>
-          <div>{this.state.SpecialKey}</div>
+          <div className="game-id">{this.state.SpecialKey}</div>
           <div className="player player-1">
           <input type="text" value={this.state.PersonAScreenKey} onChange={event => this.setState({PersonAScreenKey: event.target.value})} placeholder="Person A Key" />
             <button onClick={this.handlePersonAStart}>Start Person A Screen</button>

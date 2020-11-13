@@ -74,78 +74,12 @@ button.hard {
   padding: 1rem 2rem;
 }
 
-
-ul.listScreenList {
-  list-style: none;
-  border: 1px solid #ccc;
+.game-id {
+  width: 100%;
+  font-weight: bold;
+  border:1px solid #ccc;
   padding: 2rem;
+  background: #eee;
+  text-align:center;
   border-radius: .5rem;
-  background: #eee;
-  margin-left: 3rem;
-  display:flex;
-  flex-direction: column;
-  width: 10%;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-ul.listScreenList:before {
-  font-size:1rem;
-  color: blue;
-}
-ul.listScreenList:nth-of-type(1):before {
-  content: "Column 1";
-}
-ul.listScreenList:nth-of-type(2):before {
-  content: "Column 2";
-}
-ul.listScreenList:nth-of-type(3):before {
-  content: "Column 3";
-}
-ul.listScreenList:nth-of-type(4):before {
-  content: "Column 4";
-}
-ul.listScreenList:nth-of-type(5):before {
-  content: "Column 5";
-}
-
-.ListScreen {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.listScreenList li {
-  height: 5rem;
-}
-
-table {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-table tr {
-  width: 100%;
-  display: flex;
-}
-
-table td {
-  width: 50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.puzzleButton {
-  width: 100%;
-  max-width: 500px;
-  margin: 2rem;
-  cursor:pointer;
-  background: #eee;
-  border: 1px solid #ccc;
-  transition: .25s ease all;
-}
-
-.puzzleButton:hover {
-  box-shadow: .25rem .25rem .5rem #666;
 }
