@@ -12,7 +12,7 @@ class PuzzleScreen extends React.Component {
     };
   
     handleError = () => {
-      if (this.state.Errors >= 3) {
+      if (this.state.Errors >= 5) {
         this.setState({
           YouLose: true,
           ShowPuzzle: false
