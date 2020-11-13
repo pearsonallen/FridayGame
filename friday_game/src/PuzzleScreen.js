@@ -44,11 +44,13 @@ class PuzzleScreen extends React.Component {
     render() {
       return (
         <React.Fragment>
-          <div>Errors: {this.state.Errors}</div>
-          <div>Wins: {this.state.Wins}</div>
-          {this.state.YouWin === true && <p>You Win</p>}
-          {this.state.ShowPuzzle === true && <Puzzle onError={this.handleError} onWin={this.handleWin} correctOrder={this.state.CorrectOrder} />}
-          {this.state.YouLose === true && <p>You Lose</p>}
+          <div className="container">
+            <div className="losses">Errors: {this.state.Errors}</div>
+            <div className="wins">Wins: {this.state.Wins}</div>
+            {this.state.YouWin === true && <p>You Win</p>}
+            {this.state.ShowPuzzle === true && <Puzzle onError={this.handleError} onWin={this.handleWin} correctOrder={this.state.CorrectOrder} />}
+            {this.state.YouLose === true && <p>You Lose</p>}
+          </div>
         </React.Fragment>
       );
     }

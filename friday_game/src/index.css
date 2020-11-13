@@ -12,6 +12,74 @@ code {
     monospace;
 }
 
-.App {
-  width:800px;
+.container {
+  align-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 980px;
+}
+
+.game-difficulty {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+  width: 100%;
+  
+}
+
+button {
+  background: #add8e6;
+  border-radius: .5rem;
+  cursor: pointer;
+  margin: 0 3rem;
+  padding: 1rem 2rem;
+  transition: 0.25s ease all;
+}
+
+button:hover,
+button:active,
+button:focus {
+  box-shadow: .25rem .25rem .5rem #666;
+  outline:none;
+}
+
+button.easy {
+  background: green;
+  color: white;
+}
+
+button.medium {
+  background: yellow;
+}
+
+button.hard {
+  background: red;
+  color: white;
+}
+
+.player {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 3rem;
+}
+
+.player input {
+  border-radius: .5rem;
+  margin: 1rem 0;
+  padding: 1rem 2rem;
+}
+
+.game-id {
+  width: 100%;
+  font-weight: bold;
+  border:1px solid #ccc;
+  padding: 2rem;
+  background: #eee;
+  text-align:center;
+  border-radius: .5rem;
 }
