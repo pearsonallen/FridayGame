@@ -18,9 +18,8 @@ class InitialButtonsScreen extends React.Component {
 
   getSpecialKey = async (difficulty) => {
     const response = await axios.get(process.env.REACT_APP_API + "/CreateSymbols?difficulty=" + difficulty);
-    
     this.setState({
-      SpecialKey: response.data
+      SpecialKey: response.data.guid
     })
   }
 

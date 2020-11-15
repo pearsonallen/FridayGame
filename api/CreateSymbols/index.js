@@ -17,7 +17,7 @@ module.exports = async function (context, req) {
 
     if (r[".metadata"].etag != null) {
       context.res = {
-        body: uniqueID
+        body: {guid: uniqueID}
       }
     }
 }
@@ -92,7 +92,8 @@ class SymbolGenerator {
     }
 
   getCorrectOrders = () => {
-      let listChoices = [1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4];
+      let listChoices = [0,0,0,1,1,1,2,2,2,3,3,3,4,4,4];
+      
       let chosenChoices = {};
       listChoices = this.shuffle(listChoices);
       let correctOrders = [];
