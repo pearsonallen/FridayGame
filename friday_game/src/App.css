@@ -30,7 +30,7 @@
 
 
 .btnClicked {
-  background-color: green;
+  background-color: green !important;
 }
 
 .ListScreen {
