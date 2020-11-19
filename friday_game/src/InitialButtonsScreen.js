@@ -28,7 +28,7 @@ class InitialButtonsScreen extends React.Component {
       <React.Fragment className="screen1">
         <div className="container">
           <div className="title">
-            <h1>Friday Game</h1>
+            <h1>Friday Morning Game</h1>
           </div>
           <div className="game-difficulty">
             <button className="easy" onClick={() => this.getSpecialKey(1)}>Start Easy Game</button>
