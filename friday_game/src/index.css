@@ -21,6 +21,14 @@ code {
   max-width: 980px;
 }
 
+.container2 {
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 3rem auto;
+  max-width: 980px;
+}
+
 .game-difficulty {
   align-items: center;
   align-self: center;

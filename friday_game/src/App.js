@@ -46,11 +46,30 @@ class App extends React.Component {
   }
   render() {
     return (
+      <>
       <div>
       {(this.state.showFirstScreen && <InitialButtonsScreen personAStart={this.showListScreen} personBStart={this.showPuzzleScreen} />)}
       {(this.state.showListScreen && <ListScreen lists={this.state.Lists} />)}
       {(this.state.showPuzzleScreen && <PuzzleScreen correctOrders={this.state.CorrectOrders} />)}
       </div>
+      <div class="container2">
+        <h5>Game Objective</h5>
+        <ul>
+        <li>Person A and Person B talk through solving Person B's puzzle.</li>
+        </ul>
+        <h5>Rules</h5>
+        <ul>
+          <li>Both parties cannot look at what each other sees</li>
+        </ul>
+        <h5>Instructions</h5>
+        <ul>
+          <li>Click a difficulty button to generate a game id</li>
+          <li>Game id will ensure everyone experiences the same game</li>
+          <li>Person A must pay attention to: 1) Which list the symbols are in. 2) The order of the symbols</li>
+          <li>Person B clicks the buttons in the correct order</li>
+        </ul>
+      </div>
+      </>
     );
   }
 }
